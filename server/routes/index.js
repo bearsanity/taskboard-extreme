@@ -1,7 +1,11 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-router.get('/api/health', (req, res) => {
-    res.send('Working!')
-})
+const groupRoutes = require("./groupRoutes");
+const taskRoutes = require("./taskRoutes");
+const authRoutes = require("./authRoutes");
+
+router.use("/api/groups", groupRoutes);
+router.use("/api/tasks", taskRoutes);
+router.use("/api/auth", authRoutes)
 
 module.exports = router;
